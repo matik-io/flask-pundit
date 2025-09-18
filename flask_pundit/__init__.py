@@ -159,6 +159,6 @@ class FlaskPundit(object):
         return flask.request.method.lower()
 
     def _get_stack_top(self):
-        if flask._app_ctx_stack.top is not None:
-            return flask._app_ctx_stack.top
+        if flask.g is not None:
+            return flask.g
         raise RuntimeError('No application context present')
